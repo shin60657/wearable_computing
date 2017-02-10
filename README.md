@@ -19,14 +19,14 @@ Files submitted for the assignment are located:
 https://github.com/shin60657/wearable_computing
 
 Files submitted:
-  run_analysis.r - R script performing the analysis
-  tidy_wearable.txt - Tidy data set
-  tidy_werable.csv - csv version of the tidy data
-  CodeBook.md - Code book describing the tidy data
-  README.md - This file that describes run_analysis.r
+*  run_analysis.r - R script performing the analysis
+*  tidy_wearable.txt - Tidy data set
+*  tidy_werable.csv - csv version of the tidy data
+*  CodeBook.md - Code book describing the tidy data
+*  README.md - This file that describes run_analysis.r
 ======================================================================================
 
-## Introduction - Wearable Computing
+# Introduction - Wearable Computing
 
 This project is developed for the final assignment for the "Getting and Cleaning Data" 
 for the Coursera Data Science course. The purpose of this project is to demonstrate 
@@ -42,43 +42,36 @@ test and training group.
 A full description of the experiment is available at the site:
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones 
 
-## Source data
+# Source data
 The source data used is from:
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
 They've been downloaded and extracted locally and consist of:
- activity_labels - description of the activities which are referenced as numbers in the
-                   actual data
- features - The list of 561 observation variables collected in the experiments
- features_info - Descriprion of the variables in features
- Test data sets:
-   subject_test - list of the Subjects identified only by a number, who were observed
-                  for the Test experiments - they are listed corresponding to each
-                  row of observation made
-   y_test - each activity corresponding to each row of observation mae
-   X_test - every measurement recorded across all 561 observation features (columns)
-            and activities (rows)
- Training data sets:
-   subject_train - list of the Subjects identified only by a number, who were observed
-                  for the Training experiments - they are listed corresponding to each
-                  row of observation made
-   y_train - each activity corresponding to each row of observation mae
-   X_train - every measurement recorded across all 561 observation features (columns)
-            and activities (rows)
 
-NOTE: The Internal Signal data were NOT included.  They are the raw data and the
-      assignment only involves the processed data (means and standard deviations)
-      found in the X_test and X_train respectively.
+## Activity and features observed
+* activity_labels - description of the activities which are referenced as numbers in the actual data
+* features - The list of 561 observation variables collected in the experiments
+* features_info - Descriprion of the variables in features
 
-## Assignment STEPS
+## Observation variable data
+* Test data sets:
+*   subject_test - list of the Subjects identified only by a number, who were observed for the Test experiments - they are listed corresponding to each row of observation made
+*   y_test - each activity corresponding to each row of observation mae
+*   X_test - every measurement recorded across all 561 observation features (columns)and activities (rows)
+* Training data sets:
+*   subject_train - list of the Subjects identified only by a number, who were observed for the Training experiments - they are listed corresponding to each row of observation made
+*   y_train - each activity corresponding to each row of observation mae
+*   X_train - every measurement recorded across all 561 observation features (columns) and activities (rows)
+
+NOTE: The Internal Signal data were NOT included.  They are the raw data and the assignment only involves the processed data (means and standard deviations) found in the X_test and X_train respectively.
+
+# Assignment STEPS
 The assignment direct us to do the following. 
- 1.Merges the training and the test sets to create one data set.
- 2.Extracts only the measurements on the mean and standard deviation for each 
-   measurement 
- 3.Uses descriptive activity names to name the activities in the data set
- 4.Appropriately labels the data set with descriptive variable names. 
- 5.From the data set in step 4, creates a second, independent tidy data set with the 
-   average of each variable for each activity and each subject.
+ 1. Merges the training and the test sets to create one data set.
+ 2. Extracts only the measurements on the mean and standard deviation for each measurement 
+ 3. Uses descriptive activity names to name the activities in the data set
+ 4. Appropriately labels the data set with descriptive variable names. 
+ 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 HOWEVER, run_analysis.r has modified and implemented the steps as follows to achieve
 the same goal as the assignment Step #5.  The reason for modifying the steps is the 
@@ -86,19 +79,19 @@ reduce the size of the files being worked on and also, in the opinion of this au
 simplifies some of the work needed to the results.  Here are the run_analysis.r steps:
  1. Reduce and extract only the mean and standard deviation for each measurement.  
     To do this;
-    A. Reduce the 561 variables in the features list to only mean() and std().  
-       NOTE: The experiments has data called "meanFreq()" This data has been excluded
-       from the tidy data since they are NOT actual means but, used in the steps to 
-       obtain the means..  The file "features_info' that accompanies the experiment data 
-       describes "meanFreq()" as the "Weighted average of the frequency components to 
-       obtain a mean frequency". So, these variables are NOT the actual means.
-    B. Read in and reduce the Test and Training observations respectively
+    A.  Reduce the 561 variables in the features list to only mean() and std().  
+        NOTE: The experiments has data called "meanFreq()" This data has been excluded
+        from the tidy data since they are NOT actual means but, used in the steps to 
+        obtain the means..  The file "features_info' that accompanies the experiment data 
+        describes "meanFreq()" as the "Weighted average of the frequency components to 
+        obtain a mean frequency". So, these variables are NOT the actual means.
+    B.  Read in and reduce the Test and Training observations respectively
  2. Appropriately label the data set with descriptive variable names
  3. Use descriptive activity names to name the activities. To do this:
  4.  Merge the training and the test sets to create on data set.  To do this:
-    A. Merge the Subjects, Activities and Observations into the Test and Training 
-       observations respectively 
-    B. Then merge the completed Test and Training files (in Step 4.A above) together
+    A.  Merge the Subjects, Activities and Observations into the Test and Training 
+        observations respectively 
+    B.  Then merge the completed Test and Training files (in Step 4.A above) together
  5. From the data set in step 4, creates a second, independent tidy data set with the 
     average of each variable 
 
@@ -112,11 +105,11 @@ To read:
 
 If you want to download the files locally - first set your working directory then:
 
-TEXT FILE:
+TEXT FILE: 
 download.file("https://raw.githubusercontent.com/shin60657/wearable_computing/master/tidy_wearable.txt", "./tidy_wearable.txt")
 
-CSV FILE
+CSV FILE: 
 download.file("https://raw.githubusercontent.com/shin60657/wearable_computing/master/tidy_wearable.csv", "./tidy_wearable.csv")
 
-## Why this is tidy data:
+# Why this is tidy data:
 
