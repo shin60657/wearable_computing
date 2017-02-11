@@ -4,8 +4,6 @@ author: "Shin Saito"
 date: "February 10, 2017"
 output: html_document
 ---
-
-======================================================================================
 Coursera "Getting and Cleaning Data" course -final assignment
 Author: Shin Saito
 Contact: ssaito@prioricorp.com
@@ -19,11 +17,12 @@ Files submitted for the assignment are located:
 https://github.com/shin60657/wearable_computing
 
 Files submitted:
-*  run_analysis.r - R script performing the analysis
-*  tidy_wearable.txt - Tidy data set
-*  tidy_werable.csv - csv version of the tidy data
-*  CodeBook.md - Code book describing the tidy data
-*  README.md - This file that describes run_analysis.r
+* run_analysis.r - R script performing the analysis
+* tidy_wearable.txt - Tidy data set
+* tidy_werable.csv - csv version of the tidy data
+* CodeBook.md - Code book describing the tidy data
+* README.md - This file that describes run_analysis.r
+ 
 ======================================================================================
 
 # Introduction - Wearable Computing
