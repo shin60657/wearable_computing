@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-#Human Activity Recognition Using Smartphones Data Set 
+#Human Activity Recognition Using Smartphones Data Set Code Book 
 #Study Design:
 This dataset has been developed for the final assignment for the "Getting and Cleaning Data" for the Coursera Data Science course. The goal is to prepare tidy data that can be used for later analysis. The original data is taken from experiments that have been carried out with a group of  volunteers who performed six activities wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. 
 
