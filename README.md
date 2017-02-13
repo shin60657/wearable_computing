@@ -47,7 +47,7 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 
 They've been downloaded and extracted locally and consist of:
 
-## Activity and features observed
+## Activity and features files from the source
 * activity_labels - description of the activities which are referenced as numbers in the actual data
 * features - The list of 561 observation variables collected in the experiments
 * features_info - Descriprion of the variables in features
@@ -70,26 +70,27 @@ The assignment direct us to do the following.
  2. Extracts only the measurements on the mean and standard deviation for each measurement 
  3. Uses descriptive activity names to name the activities in the data set
  4. Appropriately labels the data set with descriptive variable names. 
- 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+ 5. From the data set in step 4, creates a second, independent tidy data set with the average 
+    of each variable for each activity and each subject.
 
 HOWEVER, run_analysis.r has modified and implemented the steps as follows to achieve
 the same goal as the assignment Step #5.  The reason for modifying the steps is the 
 reduce the size of the files being worked on and also, in the opinion of this author, 
 simplifies some of the work needed to the results.  Here are the run_analysis.r steps:
  1. Reduce and extract only the mean and standard deviation for each measurement. To do this:
-    A.  Reduce the 561 variables in the features list to only mean() and std().  
-        NOTE: The experiments has data called "meanFreq()" This data has been excluded
-        from the tidy data since they are NOT actual means but, used in the steps to 
-        obtain the means..  The file "features_info' that accompanies the experiment data 
-        describes "meanFreq()" as the "Weighted average of the frequency components to 
-        obtain a mean frequency". So, these variables are NOT the actual means.
-    B.  Read in and reduce the Test and Training observations respectively
+    1.1.  Reduce the 561 variables in the features list to only mean() and std().  
+          NOTE: The experiments has data called "meanFreq()" This data has been excluded
+          from the tidy data since they are NOT actual means but, used in the steps to 
+          obtain the means.  The file "features_info' that accompanies the experiment data 
+          describes "meanFreq()" as the "Weighted average of the frequency components to 
+          obtain a mean frequency". So, these variables are NOT the actual means.
+    1.2.  Read in and reduce the Test and Training observations respectively
  2. Appropriately label the data set with descriptive variable names
  3. Use descriptive activity names to name the activities. To do this:
  4.  Merge the training and the test sets to create on data set.  To do this:
-    A.  Merge the Subjects, Activities and Observations into the Test and Training 
-        observations respectively 
-    B.  Then merge the completed Test and Training files (in Step 4.A above) together
+    4.1.  Merge the Subjects, Activities and Observations into the Test and Training 
+          observations respectively 
+    4.2.  Then merge the completed Test and Training files (in Step 4.A above) together
  5. From the data set in step 4, creates a second, independent tidy data set with the 
     average of each variable 
 
