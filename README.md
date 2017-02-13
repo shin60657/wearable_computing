@@ -54,13 +54,13 @@ They've been downloaded and extracted locally and consist of:
 
 ## Observation variable data
 * Test data sets:
-*   subject_test - list of the Subjects identified only by a number, who were observed for the Test experiments - they are listed corresponding to each row of observation made
-*   y_test - each activity corresponding to each row of observation mae
-*   X_test - every measurement recorded across all 561 observation features (columns)and activities (rows)
+**   subject_test - list of the Subjects identified only by a number, who were observed for the Test experiments - they are listed corresponding to each row of observation made
+**   y_test - each activity corresponding to each row of observation mae
+**   X_test - every measurement recorded across all 561 observation features (columns)and activities (rows)
 * Training data sets:
-*   subject_train - list of the Subjects identified only by a number, who were observed for the Training experiments - they are listed corresponding to each row of observation made
-*   y_train - each activity corresponding to each row of observation mae
-*   X_train - every measurement recorded across all 561 observation features (columns) and activities (rows)
+**   subject_train - list of the Subjects identified only by a number, who were observed for the Training experiments - they are listed corresponding to each row of observation made
+**   y_train - each activity corresponding to each row of observation mae
+**   X_train - every measurement recorded across all 561 observation features (columns) and activities (rows)
 
 NOTE: The Internal Signal data were NOT included.  They are the raw data and the assignment only involves the processed data (means and standard deviations) found in the X_test and X_train respectively.
 
@@ -76,8 +76,7 @@ HOWEVER, run_analysis.r has modified and implemented the steps as follows to ach
 the same goal as the assignment Step #5.  The reason for modifying the steps is the 
 reduce the size of the files being worked on and also, in the opinion of this author, 
 simplifies some of the work needed to the results.  Here are the run_analysis.r steps:
- 1. Reduce and extract only the mean and standard deviation for each measurement.  
-    To do this;
+ 1. Reduce and extract only the mean and standard deviation for each measurement. To do this:
     A.  Reduce the 561 variables in the features list to only mean() and std().  
         NOTE: The experiments has data called "meanFreq()" This data has been excluded
         from the tidy data since they are NOT actual means but, used in the steps to 
@@ -111,4 +110,8 @@ CSV FILE:
 download.file("https://raw.githubusercontent.com/shin60657/wearable_computing/master/tidy_wearable.csv", "./tidy_wearable.csv")
 
 # Why this is tidy data:
+This script extracts the data from the full experiments and provides the results in a Tidy data format.  It is Tidy because each variable is in a column, each observation is in a row and this dataset contains one observational unit. Please note that the Tidy format is in the long form as mentioned in the rubic as either long or wide is acceptable.  
 
+This dataset is Tidy because each row provides all the measurements pertaining to a single activity for each Subject being tested.  There are two fixed variables, one being the Subject identified and the other the activity itself.  All other columns are the measurements associated with the activity.  
+
+The dataset has further reduced to only the mean and standard deviations of the measurements in keeping with the parameters of this exercise.
