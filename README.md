@@ -78,19 +78,19 @@ the same goal as the assignment Step #5.  The reason for modifying the steps is 
 reduce the size of the files being worked on and also, in the opinion of this author, 
 simplifies some of the work needed to the results.  Here are the run_analysis.r steps:
  1. Reduce and extract only the mean and standard deviation for each measurement. To do this:
-    1.1.  Reduce the 561 variables in the features list to only mean() and std().  
+    +1.A.  Reduce the 561 variables in the features list to only mean() and std().  
           NOTE: The experiments has data called "meanFreq()" This data has been excluded
           from the tidy data since they are NOT actual means but, used in the steps to 
           obtain the means.  The file "features_info' that accompanies the experiment data 
           describes "meanFreq()" as the "Weighted average of the frequency components to 
           obtain a mean frequency". So, these variables are NOT the actual means.
-    1.2.  Read in and reduce the Test and Training observations respectively
+    +1.B.  Read in and reduce the Test and Training observations respectively
  2. Appropriately label the data set with descriptive variable names
  3. Use descriptive activity names to name the activities. To do this:
  4.  Merge the training and the test sets to create on data set.  To do this:
-    4.1.  Merge the Subjects, Activities and Observations into the Test and Training 
+    +4.A.  Merge the Subjects, Activities and Observations into the Test and Training 
           observations respectively 
-    4.2.  Then merge the completed Test and Training files (in Step 4.A above) together
+    +4.B.  Then merge the completed Test and Training files (in Step 4.A above) together
  5. From the data set in step 4, creates a second, independent tidy data set with the 
     average of each variable 
 
