@@ -1,0 +1,225 @@
+---
+title: "CodeBook"
+author: "Shin Saito"
+date: "February 13, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Human Activity Recognition Using Smartphones Data Set 
+#Study Design:
+This dataset has been developed for the final assignment for the "Getting and Cleaning Data" for the Coursera Data Science course. The goal is to prepare tidy data that can be used for later analysis. The original data is taken from experiments that have been carried out with a group of  volunteers who performed six activities wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. 
+
+A full description of the experiment is available at the site where the data was obtained:  
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+
+# Source data
+The source data used is from:  
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip  
+
+The original source data (link above) contains all the raw source data.  This dataset extracts only from the processed and calculated measurements namely, the summarized means and standard deviations of the actual observations. You’ll note that the experiments have data called "meanFreq()" This data has been excluded from the tidy data since they are NOT actual means but, used in the steps to obtain the means.  The file "features_info' that accompanies the experiment data describes "meanFreq()" as the "Weighted average of the frequency components to obtain a mean frequency". So, these variables are NOT the actual means.
+
+# Why this is tidy data:
+This script extracts the data from the full experiments (link above) and provides the results in a Tidy data format.  It is Tidy because each variable is in a column, each observation is in a row and this dataset contains one observational unit. Please note that the Tidy format is in the long form and either long or wide is acceptable.  
+
+This dataset is Tidy because each row provides all the measurements pertaining to a single activity for each Subject being tested.  There are two fixed variables, one being the Subject being observed and the other begining the Activity conducted by the Subjecvt  All other remaining columns are the Feature measurements associated with the activity. Futhermore, the dataset has been reduced to only the mean and standard deviations of the measurements as instructed in this exercise.
+
+#CodeBook Columns
+## Subject
+The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (below) wearing a smartphone (Samsung Galaxy S II) on the waist. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
+
+## Activity
+Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)
+
+## Features
+The remainder of column variables are the measurements from the Subjects performing the listed Activity on the accelerometer and gyroscope. There are 3-axial raw signals tAcc-XYZ and tGyro-XYZ where “t” denotes time, “Acc” the accelerometer, “Gyro” the gyroscope and “XYZ” are the axis respectively.  
+
+The variables in this Tidy dataset are reduced from the full list of 561 features in the experiment to only the 66 processed Means and Standard Deviation variables. These variables have been further summarized to the AVERAGES of the means and standard deviations for each activity for each subject.  Please note the following:  
+
+  * Observations were taken from 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz   
+    
+  * The acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz.  
+    
+  * Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ)  
+  
+  *	Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag)  
+  
+  * Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals)    
+
+# CODE BOOK  
+###Subject  
+        Range of values:
+             1	Subject # 1 from the Training dataset
+             2	Subject # 2 from the Test dataset
+             3	Subject # 3 from the Training dataset
+             4	Subject # 4 from the Test dataset
+             5	Subject # 5 from the Training dataset
+             6	Subject # 6 from the Training dataset
+             7	Subject # 7 from the Training dataset
+             8	Subject # 8 from the Training dataset
+             9	Subject # 9 from the Test dataset
+            10	Subject # 10 from the Test dataset
+            11	Subject # 11 from the Training dataset
+            12	Subject # 12 from the Test dataset
+            13	Subject # 13 from the Test dataset
+            14	Subject # 14 from the Training dataset
+            15	Subject # 15 from the Training dataset
+            16	Subject # 16 from the Training dataset
+            17	Subject # 17 from the Training dataset
+            18	Subject # 18 from the Test dataset
+            19	Subject # 19 from the Training dataset
+            20	Subject # 20 from the Test dataset
+            21	Subject # 21 from the Training dataset
+            22	Subject # 22 from the Training dataset
+            23	Subject # 23 from the Training dataset
+            24	Subject # 24 from the Test dataset
+            25	Subject # 25 from the Training dataset
+            26	Subject # 26 from the Training dataset
+            27	Subject # 27 from the Training dataset
+            8	Subject # 28 from the Training dataset
+            29	Subject # 29 from the Training dataset
+            30	Subject # 30 from the Training dataset
+###Activity  
+        Range of values:  
+            LAYING
+            SITTING
+            STANDING
+            WALKING
+            WALKING_DOWNSTAIRS
+            WALKING_UPSTAIRS
+###tBodyAcc-mean()-X	 
+    Mean of the Body acceleration in the X direction  
+###tBodyAcc-mean()-Y 	
+    Mean of the Body acceleration in the Y direction  
+###tBodyAcc-mean()-Z 	
+    Mean of the Body acceleration in the Z direction  
+###tBodyAcc-std()-X 	
+    Standard deviation of the Body acceleration in the X direction  
+###tBodyAcc-std()-Y 	
+    Standard deviation of the Body acceleration in the Y direction  
+###tBodyAcc-std()-Z 	
+    Standard deviation of the Body acceleration in the Z direction  
+###tGravityAcc-mean()-X 	
+    Mean of the Gravity acceleration in the X direction  
+###tGravityAcc-mean()-Y 	
+    Mean of the Gravity acceleration in the Y direction  
+###tGravityAcc-mean()-Z 	
+    Mean of the Gravity acceleration in the Z direction  
+###tGravityAcc-std()-X 	
+    Standard deviation of the Gravity acceleration in the X direction  
+###tGravityAcc-std()-Y 	
+    Standard deviation of the Gravity acceleration in the Y direction
+###tGravityAcc-std()-Z 	
+    Standard deviation of the Gravity acceleration in the Z direction
+###tBodyAccJerk-mean()-X 	
+    Mean of the Jerk motion acceleration in the X direction
+###tBodyAccJerk-mean()-Y 	
+    Mean of the Jerk motion acceleration in the Y direction
+###tBodyAccJerk-mean()-Z 	
+    Mean of the Jerk motion acceleration in the Z direction
+###tBodyAccJerk-std()-X 	
+    Standard deviation of the Jerk motion acceleration in the X direction
+###tBodyAccJerk-std()-Y 	
+    Standard deviation of the Jerk motion acceleration in the Y direction
+###tBodyAccJerk-std()-Z 	
+    Standard deviation of the Jerk motion acceleration in the Z direction
+###tBodyGyro-mean()-X 	
+    Mean of the Gyroscope velocity in the X direction
+###tBodyGyro-mean()-Y 	
+    Mean of the Gyroscope velocity in the Y direction
+###tBodyGyro-mean()-Z 	
+    Mean of the Gyroscope velocity in the Z direction
+###tBodyGyro-std()-X 	
+    Standard deviation of the Gyroscope velocity in the X direction
+###tBodyGyro-std()-Y 	
+    Standard deviation of the Gyroscope velocity in the Y direction
+###tBodyGyro-std()-Z 	
+    Standard deviation of the Gyroscope velocity in the Z direction
+###tBodyGyroJerk-mean()-X 	
+    Mean of the Gyroscope velocity of the Jerk motion in the X direction
+###tBodyGyroJerk-mean()-Y 	
+    Mean of the Gyroscope velocity of the Jerk motion in the Y direction
+###tBodyGyroJerk-mean()-Z 	
+    Mean of the Gyroscope velocity of the Jerk motion in the Z direction
+###tBodyGyroJerk-std()-X 	
+    Standard deviation of the Gyroscope velocity of the Jerk motion in the X direction
+###tBodyGyroJerk-std()-Y 	
+    Standard deviation of the Gyroscope velocity of the Jerk motion in the Y direction
+###tBodyGyroJerk-std()-Z 	
+    Standard deviation of the Gyroscope velocity of the Jerk motion in the Z direction
+###tBodyAccMag-mean()	
+    Mean of the Body acceleration Magnitude
+###tBodyAccMag-std()	
+    Standard deviation of the Body acceleration Magnitude 
+###tGravityAccMag-mean()	
+    Mean of the Gravity acceleration Magnitude 
+###tGravityAccMag-std()	
+    Standard deviation of the Gravity acceleration Magnitude
+###tBodyAccJerkMag-mean()	
+    Mean of the Jerk motion acceleration Magnitude
+###tBodyAccJerkMag-std()	
+    Standard deviation of the Jerk motion acceleration Magnitude
+###tBodyGyroMag-mean()	
+    Mean of the Gyroscope velocity Magnitude
+###tBodyGyroMag-std()	
+    Standard deviation of the Gyroscope velocity Magnitude
+###tBodyGyroJerkMag-mean()	
+    Mean of the Gyroscope velocity Magnitude of the Jerk motion
+###tBodyGyroJerkMag-std()	
+    Standard deviation of the Gyroscope velocity Magnitude of the Jerk motion
+###fBodyAcc-mean()-X	
+    Mean of the Fast Fourier Transform (FFT) of the Body acceleration in the X direction
+###fBodyAcc-mean()-Y 	
+    Mean of the Fast Fourier Transform (FFT) of the Body acceleration in the Y direction
+###fBodyAcc-mean()-Z 	
+    Mean of the Fast Fourier Transform (FFT) of the Body acceleration in the Z direction
+###fBodyAcc-std()-X 	
+    Standard deviation of the Fast Fourier Transform (FFT) of the Body acceleration in the X direction
+###fBodyAcc-std()-Y 	
+    Standard deviation of the Fast Fourier Transform (FFT) of the Body acceleration in the Y direction
+###fBodyAcc-std()-Z 	
+    Standard deviation of the Fast Fourier Transform (FFT) of the Body acceleration in the Z direction
+###fBodyAccJerk-mean()-X 	
+    Mean of the Fast Fourier Transform (FFT) of the Jerk motion acceleration in the X direction
+###fBodyAccJerk-mean()-Y 	
+    Mean of the Fast Fourier Transform (FFT) of the Jerk motion acceleration in the Y direction
+###fBodyAccJerk-mean()-Z 	
+    Mean of the Fast Fourier Transform (FFT) of the Jerk motion acceleration in the Z direction
+###fBodyAccJerk-std()-X 	
+    Standard deviation of the Fast Fourier Transform (FFT) of the Jerk motion acceleration in the X direction
+###fBodyAccJerk-std()-Y 	
+    Standard deviation of the Fast Fourier Transform (FFT) of the Jerk motion acceleration in the Y direction
+###fBodyAccJerk-std()-Z	
+    Standard deviation of the Fast Fourier Transform (FFT) of the Jerk motion acceleration in the X direction
+###fBodyGyro-mean()-X 	
+    Mean of the Fast Fourier Transform (FFT) of the Gyroscope velocity in the X direction
+###fBodyGyro-mean()-Y 	
+    Mean of the Fast Fourier Transform (FFT) of the Gyroscope velocity in the Y direction
+###fBodyGyro-mean()-Z 	
+    Mean of the Fast Fourier Transform (FFT) of the Gyroscope velocity in the Z direction
+###fBodyGyro-std()-X 	
+    Standard deviation of the Fast Fourier Transform (FFT) of the Gyroscope velocity in the X direction
+###fBodyGyro-std()-Y 	
+    Standard deviation of the Fast Fourier Transform (FFT) of the Gyroscope velocity in the Y direction
+###fBodyGyro-std()-Z 	
+    Standard deviation of the Fast Fourier Transform (FFT) of the Gyroscope velocity in the Z direction
+###fBodyAccMag-mean()	
+    Mean of the Fast Fourier Transform (FFT) of the Body acceleration Magnitude
+###fBodyAccMag-std()	
+    Standard deviation of the Fast Fourier Transform (FFT) of the Body acceleration Magnitude
+###fBodyBodyAccJerkMag-mean()	
+    Mean of the Fast Fourier Transform (FFT) of the Jerk motion Magnitude
+###fBodyBodyAccJerkMag-std()	
+    Standard deviation of the Fast Fourier Transform (FFT) of the Jerk motion Magnitude
+###fBodyBodyGyroMag-mean()	
+    Mean of the Fast Fourier Transform (FFT) of the Gyroscope velocity magnitude
+###fBodyBodyGyroMag-std()	
+    Standard deviation of the Fast Fourier Transform (FFT) of the Gyroscope velocity magnitude
+###fBodyBodyGyroJerkMag-mean()	
+    Mean of the Fast Fourier Transform (FFT) of the Gyroscope velocity Magnitude of the Jerk motion
+###fBodyBodyGyroJerkMag-std()	
+    Standard deviation of the Fast Fourier Transform (FFT) of the Gyroscope velocity Magnitude of the Jerk motion
